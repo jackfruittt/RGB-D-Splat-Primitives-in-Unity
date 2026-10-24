@@ -140,7 +140,7 @@ All clips loop. The 2D Gaussian (Kalman) and billboard clips play at 1x; the oth
 
 ## Conclusion
 
-None of these primitives are novel—the concept of 2DGS functioning essentially as a billboard with Gaussian falloff is already well-documented. This was an exploratory exercise to implement both in Unity and benchmark them apples-to-apples directly against a live RGB-D stream, without prior training or scene optimization.
+None of these primitives are novel, the concept of 2DGS functioning essentially as a billboard with Gaussian falloff is already well-documented. This was an exploratory exercise to implement both in Unity and benchmark them apples-to-apples directly against a live RGB-D stream, without prior training or scene optimization.
 
 The practical trade-offs come down to the use case. Both noticeably outperform flat quads. For straightforward surface reconstruction, camera-facing billboards achieve comparable fidelity to 2DGS with simpler math and none of the edge-flickering artifacts typical of tilted disks. While the billboard implementation currently benchmarks slightly slower, that bottleneck is purely due to transparency-induced overdraw and the loss of early-Z culling. At the primitive level, billboards are computationally cheaper; switching to an opaque rendering pass would make them faster than 2DGS.
 
